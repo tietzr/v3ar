@@ -24,5 +24,7 @@ Other users can register in the application and add or remove books to their car
 
 ### Instructions to run the Application
 
-1. Copy the '.env-template' file and rename it to '.env'.
+1. Copy the '.env-template' file and rename it to '.env'
 1. Edit the new file replacing the database connection value in the corresponding place.
+1. Open the terminal and run 'npm install'
+1. Run 'npm start' to start the app.
