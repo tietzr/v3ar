@@ -1,0 +1,28 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "Full Stack Javascript Final Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tietzr/v3ar.git"
+  },
+  "keywords": [
+    "project"
+  ],
+  "author": "V3AR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tietzr/v3ar/issues"
+  },
+  "homepage": "https://github.com/tietzr/v3ar#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.1"
+  }
+}
