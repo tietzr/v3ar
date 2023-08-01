@@ -15,14 +15,16 @@ const userSchema = new mongoose.Schema({
 
 const booksSchema = new mongoose.Schema({
   title: String,
-  description: Date,
-  year: Number,
-  author: [String],
-  tags: [String],
+  subtitle: String,
+  description: String,
+  releaseDate: Date,
+  authors: [String],
   genres: [String],
-  cover: String,
   rating: Number,
   price: Number,
+  isbn: String,
+  eisbn: String,
+  pages: Number,
 });
 
 const User = mongoose.model("User", userSchema);

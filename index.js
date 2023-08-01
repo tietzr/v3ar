@@ -1,27 +1,28 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const path = require("path");
-const bodyParser = require('body-parser')
-
-const app = express();
-app.use(express.json());
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
-app.use(bodyParser.json())
-
-// Serve static files from the "public" directory
-console.log(__dirname)
-app.use(express.static(path.join(__dirname, 'public')));
+const bodyParser = require('body-parser');
 
 dotenv.config();
 
 const database = require("./src/database");
-var userRoutes = require('./src/users');
+const userRoutes = require('./src/users');
+const bookRoutes = require('./src/books');
+
+// require('./data/data-load');
+
+const app = express();
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('view engine', 'ejs');
 
 app.use('/api/user', userRoutes);
+app.use('/api/book', bookRoutes);
 
 app.get('/', function(req, res) {
   res.render('pages/index');
