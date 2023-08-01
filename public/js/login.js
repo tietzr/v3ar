@@ -14,5 +14,7 @@ const onLoginSubmit = async (event) => {
     window.localStorage.setItem("bookshelf@authentication", JSON.stringify(result));
   }
 
+  window.location.href = '/pages/shop'; 
+
   return false;
 };
