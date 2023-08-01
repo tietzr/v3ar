@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
   res.render('pages/index');
 });
 
-const pages = ['cart', 'checkout', 'contact', 'detail', 'shop', 'login'];
+const pages = ['cart', 'checkout', 'contact', 'detail', 'shop', 'login', 'register'];
 
 pages.forEach(pageName => {
   app.get(`/pages/${pageName}`, function(req, res) {

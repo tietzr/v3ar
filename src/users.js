@@ -49,6 +49,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Add the router for registration form here
+
 router.get("/list", async (req, res) => {
   try {
     const users = await User.find();
