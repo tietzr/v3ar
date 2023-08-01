@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const { User } = require("./database")
+const { User } = require("./database");
 
 router.get("/", async (req, res) => {
-    res.send("Welcome to User!");
+  res.send("Welcome to User!");
 });
 
 router.post("/add", async (req, res) => {
@@ -15,6 +15,37 @@ router.post("/add", async (req, res) => {
     res.send(savedUser);
   } catch (err) {
     res.status(500).send(err);
+  }
+});
+
+router.post("/login", async (req, res) => {
+  const loginInfo = req.body;
+
+  console.log(loginInfo);
+  try {
+    const userFound = await User.findOne(
+      {
+        email: loginInfo.email,
+        password: loginInfo.password,
+      },
+      { password: 0, birthDate: 0 }
+    );
+
+    if (!userFound) {
+      res.status(400).send({
+        status: "error",
+        message:
+          "User not found, please make sure you have the correct credentials!",
+      });
+      return;
+    }
+    res.send(userFound);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({
+      status: "error",
+      message: "Something went wrong trying to locate the user in the database",
+    });
   }
 });
 
@@ -55,6 +86,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).send(err);
   }
 });
-
 
 module.exports = router;
