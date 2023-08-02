@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'bookshelfv3ar'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_078790E2595949E58903708988E013EB }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
