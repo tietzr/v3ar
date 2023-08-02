@@ -40,13 +40,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:  
-      - name: Run a multi-line script
-          env:
-            DB_CONNECTION_STRING: ${{ secrets.DB_CONNECTION_STRING }}
-        run: |
-          echo $DB_CONNECTION_STRING
-          
+    steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
