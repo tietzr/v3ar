@@ -38,5 +38,6 @@ pages.forEach(pageName => {
     res.render(`pages/${pageName}`);
   });
 });
+
 // This app will run on port 3000 locahost:3000
 app.listen(3000, () => console.log("Server is running on port 3000"));
