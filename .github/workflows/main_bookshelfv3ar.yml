@@ -42,8 +42,7 @@ jobs:
 
     steps:  
       - name: Run a multi-line script
-        run: |
-          echo ${{ secrets }}
+        run: echo ${{ secrets.DB_CONNECTION_STRING }}
 
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
