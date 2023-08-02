@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Book } = require("./database");
+const { Book, Genre } = require("./database");
 
 router.get("/", async (req, res) => {
   res.send("Welcome to Books API!");
@@ -15,17 +15,36 @@ router.post("/list", async (req, res) => {
     const numItems = req.body.items ?? 20;
     const sort = req.body.sort ?? "title";
 
-    const books = await Book.find({}, null, {
+    const filter = req.body.filter;
+
+    const queryFilter = {};
+    if (filter?.genres?.length) {
+      queryFilter.genres = {
+        $in: filter.genres,
+      };
+    }
+
+    const books = await Book.find(queryFilter, null, {
       limit: numItems,
       skip: page * numItems,
       sort: { [sort]: 1 },
     });
-    
+
     res.send(books);
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
+router.get("/genres", async (req, res) => {
+  try {
+    const genres = await Genre.find({}, null, {
+      sort: { name: 1 },
+    });
+    res.send(genres);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 module.exports = router;
