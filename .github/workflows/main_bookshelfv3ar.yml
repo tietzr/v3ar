@@ -36,11 +36,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    env:
-      DB_CONNECTION_STRING: ${{ secrets.DB_CONNECTION_STRING }}
+    container:
+      env:
+        DB_CONNECTION_STRING: ${{ secrets.DB_CONNECTION_STRING }}
     environment:
       name: 'Production'
-      DB_CONNECTION_STRING: '${{ secrets.DB_CONNECTION_STRING }}'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
