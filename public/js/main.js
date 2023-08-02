@@ -1,9 +1,7 @@
 (function ($) {
   "use strict";
 
-  window.API_BASE_URL = process?.env?.PROD_ENV
-    ? "https://bookshelfv3ar.azurewebsites.net/"
-    : "http://localhost:3000"; 
+  window.API_BASE_URL = "http://localhost:3000"; 
 
   // Dropdown on mouse hover
   $(document).ready(function () {
