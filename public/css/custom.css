@@ -29,6 +29,11 @@
     text-align: center;
 }
 
-.product-item {
+.product-item, .page-item-button {
     cursor: pointer;
+}
+
+.pagination-action-button {
+    min-width: 5.5rem;
+    text-align: center;
 }

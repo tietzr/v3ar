@@ -38,7 +38,11 @@ router.post("/list", async (req, res) => {
       sort: { [sort]: 1 },
     });
 
-    res.send(books);
+    const total = await Book.count(queryFilter);
+    res.send({
+      items: books,
+      total 
+    });
   } catch (err) {
     res.status(500).send(err);
   }
