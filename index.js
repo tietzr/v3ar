@@ -30,12 +30,7 @@ app.set('view engine', 'ejs');
 app.use('/api/user', userRoutes);
 app.use('/api/book', bookRoutes);
 
-var environment = process.env.NODE_ENV || 'development';
-console.log(environment);
-const keys = { BACK_END_URL: "http://localhost:3000" }
-if (environment !== "development"){
-  keys.BACK_END_URL = process.env.BACK_END_URL;
-}
+const keys = { APPSETTING_BACK_END_URL: process.env.APPSETTING_BACK_END_URL} ;
 
 app.get('/', function(req, res) {
   res.render('pages/index', keys);
