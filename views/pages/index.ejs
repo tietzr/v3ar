@@ -82,33 +82,45 @@
                                 <div>
                                 </div>
                                 <div class="ml-2">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                                            data-toggle="dropdown">Sorting</button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">Latest</a>
-                                            <a class="dropdown-item" href="#">Title</a>
-                                            <a class="dropdown-item" href="#">Best Rating</a>
+                                    <form>
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto">
+                                                <label class="sr-only" for="sortingInput">Sorting</label>
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i
+                                                                class="fa-solid fa-arrow-up-wide-short"></i></div>
+                                                    </div>
+                                                    <select class="form-control sorting-inpput" id="sortingInput">
+                                                        <option value="rating">Best Rating</option>
+                                                        <option selected value="releaseDate">Latest</option>
+                                                        <option value="price">Price</option>
+                                                        <option value="title">Title</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <label class="sr-only" for="itemsPerPageInput">Items per
+                                                    page</label>
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text"><i
+                                                                class="fa-solid fa-list"></i></i></div>
+                                                    </div>
+                                                    <select class="form-control" id="itemsPerPageInput">
+                                                        <option>10</option>
+                                                        <option selected>20</option>
+                                                        <option>30</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="btn-group ml-2">
-                                        <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                                            data-toggle="dropdown">Showing</button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">10</a>
-                                            <a class="dropdown-item" href="#">20</a>
-                                            <a class="dropdown-item" href="#">30</a>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-9 col-md-8 ml-auto">
-                    <div class="row pb-3 justify-content-end end">
-                        <div class="col-12">
+                        <div class="col-12 pb-1" id="paginationContainer">
                             <nav>
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a>

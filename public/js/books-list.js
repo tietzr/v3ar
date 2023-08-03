@@ -3,18 +3,25 @@ $(document).ready(function () {
   loadBooks();
 
   $(".price-filter-input").change(loadBooks);
+  $("#itemsPerPageInput").change(loadBooks);
+  $("#sortingInput").change(loadBooks);
+
 });
 
-const loadBooks = async (page = 0, numItems = 20, sort = "title") => {
+const loadBooks = async () => {
 
   const filter = { 
     genres: getGenreFilter(),
     prices: getPriceFilter(),
   };
+
+  const items = $("#itemsPerPageInput")[0].value;
+  const sort = $("#sortingInput")[0].value;
+
   const result = await makeRequest(`api/book/list`, "POST", {
     filter,
-    page,
-    items: numItems,
+    page: 0,
+    items,
     sort,
   });
 
@@ -52,7 +59,7 @@ const buildBookItem = (bookItem) => {
     </div>
   </div>
   `;
-  $("#bookListContainer").append(bookTemplate);
+  $(bookTemplate).insertBefore("#paginationContainer");
 };
 
 const buildGenreItem = (genre) => {
