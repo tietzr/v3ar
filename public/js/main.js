@@ -1,8 +1,6 @@
 (function ($) {
   "use strict";
 
-  window.API_BASE_URL = "http://localhost:3000"; 
-
   // Dropdown on mouse hover
   $(document).ready(function () {
     function toggleNavbarMethod() {
