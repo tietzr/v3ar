@@ -8,6 +8,13 @@ $(document).ready(function () {
   $("#sortingInput").change(loadBooks);
   $("#paginationPrevious").click(paginationPreviousClick);
   $("#paginationNext").click(paginationNextClick);
+
+  $("#booksSearchInput").keyup((event) => { 
+    if(event.which == 13) {
+      loadBooks();
+    }
+  });
+  $("#booksSearchButton").click(loadBooks);
 });
 
 /**
@@ -19,6 +26,7 @@ const loadBooks = async () => {
   const filter = {
     genres: getGenreFilter(),
     prices: getPriceFilter(),
+    search: getSearchFilter(),
   };
 
   const items = $("#itemsPerPageInput")[0].value;
@@ -74,6 +82,11 @@ const getPriceFilter = () => {
 
   return selectedPrices;
 };
+
+const getSearchFilter = () => {
+  const filter = $("#booksSearchInput").val();
+  return filter ?? "";
+}
 
 /**
  * Events Section

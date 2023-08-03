@@ -78,43 +78,49 @@
                     <div id="bookListContainer" class="row pb-3">
                         <div class="col-12 pb-1">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div>
+                                <div class="col-6">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" id="booksSearchInput"
+                                            placeholder="Find books by name or author" aria-label="Search"
+                                            aria-describedby="booksSearchInputLabel" id="booksSearchInput">
+                                        <div class="btn btn-primary" title="Search" id="booksSearchButton">
+                                            <i class="fa-brands fa-searchengin"></i>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="ml-2">
-                                    <form>
-                                        <div class="form-row align-items-center">
-                                            <div class="col-auto">
-                                                <label class="sr-only" for="sortingInput">Sorting</label>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i
-                                                                class="fa-solid fa-arrow-up-wide-short"></i></div>
-                                                    </div>
-                                                    <select class="form-control sorting-inpput" id="sortingInput">
-                                                        <option value="rating">Best Rating</option>
-                                                        <option selected value="releaseDate">Latest</option>
-                                                        <option value="price">Price</option>
-                                                        <option value="title">Title</option>
-                                                    </select>
+                                    <div class="form-row align-items-center">
+                                        <div class="col-auto">
+                                            <label class="sr-only " for="sortingInput">Sorting</label>
+                                            <div class="input-group mb-2">
+                                                <div class="btn btn-primary">
+                                                    <i class="fa-solid fa-arrow-up-wide-short"></i>
                                                 </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <label class="sr-only" for="itemsPerPageInput">Items per
-                                                    page</label>
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text"><i
-                                                                class="fa-solid fa-list"></i></i></div>
-                                                    </div>
-                                                    <select class="form-control" id="itemsPerPageInput">
-                                                        <option>10</option>
-                                                        <option selected>20</option>
-                                                        <option>30</option>
-                                                    </select>
-                                                </div>
+                                                <select class="form-control sorting-inpput" id="sortingInput">
+                                                    <option value="rating">Best Rating</option>
+                                                    <option selected value="releaseDate">Latest</option>
+                                                    <option value="price">Price</option>
+                                                    <option value="title">Title</option>
+                                                </select>
                                             </div>
                                         </div>
-                                    </form>
+                                        <div class="col-auto">
+                                            <label class="sr-only btn btn-primary" for="itemsPerPageInput">Items per
+                                                page</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="btn btn-primary">
+                                                        <i class="fa-solid fa-list"></i>
+                                                    </div>
+                                                </div>
+                                                <select class="form-control" id="itemsPerPageInput">
+                                                    <option>10</option>
+                                                    <option selected>20</option>
+                                                    <option>30</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -124,14 +130,16 @@
                                 <p class="lead">Unfortunately no books are available with the current filters.</p>
                                 <p class="lead">Please try again!</p>
 
-                              </div>
+                            </div>
                         </div>
                         <div class="col-12 pb-1" id="paginationContainer">
                             <nav>
                                 <ul class="pagination justify-content-center">
-                                    <li class="page-item pagination-action-button" id="paginationPrevious"><span class="page-link">Previous</span>
+                                    <li class="page-item pagination-action-button" id="paginationPrevious"><span
+                                            class="page-link">Previous</span>
                                     </li>
-                                    <li class="page-item pagination-action-button"  id="paginationNext"><span class="page-link">Next</span></li>
+                                    <li class="page-item pagination-action-button" id="paginationNext"><span
+                                            class="page-link">Next</span></li>
                                 </ul>
                             </nav>
                         </div>

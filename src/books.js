@@ -24,12 +24,32 @@ router.post("/list", async (req, res) => {
       };
     }
 
+    const andClause = [];
     if (filter?.prices?.length) {
-      queryFilter.$or = filter.prices.map((price) => {
-        return {
-          price: { $gte: price.min, $lte: price.max ?? Number.MAX_VALUE },
-        };
+      andClause.push({
+        $or: filter.prices.map((price) => {
+          return {
+            price: { $gte: price.min, $lte: price.max ?? Number.MAX_VALUE },
+          };
+        }),
       });
+    }
+
+    if (filter?.search) {
+      andClause.push({
+        $or: [
+          {
+            title: new RegExp(filter.search, 'i'),
+          },
+          {
+            authors: new RegExp(filter.search, 'i'),
+          },
+        ],
+      });
+    }
+
+    if (andClause.length > 0 ){
+      queryFilter.$and = andClause;
     }
 
     const books = await Book.find(queryFilter, null, {
@@ -41,7 +61,7 @@ router.post("/list", async (req, res) => {
     const total = await Book.count(queryFilter);
     res.send({
       items: books,
-      total 
+      total,
     });
   } catch (err) {
     res.status(500).send(err);
