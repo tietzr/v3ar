@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 
 dotenv.config();
 
-console.log("KEYS");
-console.log(process.env);
+// console.log("KEYS");
+// console.log(process.env);
 
 const database = require("./src/database");
 const userRoutes = require('./src/users');

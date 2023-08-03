@@ -24,6 +24,14 @@ router.post("/list", async (req, res) => {
       };
     }
 
+    if (filter?.prices?.length) {
+      queryFilter.$or = filter.prices.map((price) => {
+        return {
+          price: { $gte: price.min, $lte: price.max ?? Number.MAX_VALUE },
+        };
+      });
+    }
+
     const books = await Book.find(queryFilter, null, {
       limit: numItems,
       skip: page * numItems,

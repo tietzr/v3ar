@@ -23,39 +23,39 @@
                         <form>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="price-all">
-                                <label class="custom-control-label" for="price-all">All Price</label>
-                                <span class="badge border font-weight-normal">1000</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-1"
+                                    price-min="0" price-max="10">
+                                <label class="custom-control-label" for="price-1">$0 - $10</label>
                             </div>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-1">
-                                <label class="custom-control-label" for="price-1">$0 - $100</label>
-                                <span class="badge border font-weight-normal">150</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-6"
+                                    price-min="10" price-max="20">
+                                <label class="custom-control-label" for="price-6">$10 - $20</label>
                             </div>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-2">
-                                <label class="custom-control-label" for="price-2">$100 - $200</label>
-                                <span class="badge border font-weight-normal">295</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-2"
+                                    price-min="20" price-max="30">
+                                <label class="custom-control-label" for="price-2">$20 - $30</label>
                             </div>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-3">
-                                <label class="custom-control-label" for="price-3">$200 - $300</label>
-                                <span class="badge border font-weight-normal">246</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-3"
+                                    price-min="30" price-max="40">
+                                <label class="custom-control-label" for="price-3">$30 - $40</label>
                             </div>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-4">
-                                <label class="custom-control-label" for="price-4">$300 - $400</label>
-                                <span class="badge border font-weight-normal">145</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-4"
+                                    price-min="40" price-max="50">
+                                <label class="custom-control-label" for="price-4">$40 - $50</label>
                             </div>
                             <div
                                 class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="price-5">
-                                <label class="custom-control-label" for="price-5">$400 - $500</label>
-                                <span class="badge border font-weight-normal">168</span>
+                                <input type="checkbox" class="custom-control-input price-filter-input" id="price-5"
+                                    price-min="50" price-max="">
+                                <label class="custom-control-label" for="price-5">$50+</label>
                             </div>
                         </form>
                     </div>
@@ -70,50 +70,6 @@
                     </div>
                     <!-- Color End -->
 
-                    <!-- Size Start -->
-                    <h5 class="section-title position-relative text-uppercase mb-3"><span
-                            class="bg-secondary pr-3">Filter by size</span></h5>
-                    <div class="bg-light p-4 mb-30">
-                        <form>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="size-all">
-                                <label class="custom-control-label" for="size-all">All Size</label>
-                                <span class="badge border font-weight-normal">1000</span>
-                            </div>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-1">
-                                <label class="custom-control-label" for="size-1">XS</label>
-                                <span class="badge border font-weight-normal">150</span>
-                            </div>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-2">
-                                <label class="custom-control-label" for="size-2">S</label>
-                                <span class="badge border font-weight-normal">295</span>
-                            </div>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-3">
-                                <label class="custom-control-label" for="size-3">M</label>
-                                <span class="badge border font-weight-normal">246</span>
-                            </div>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="size-4">
-                                <label class="custom-control-label" for="size-4">L</label>
-                                <span class="badge border font-weight-normal">145</span>
-                            </div>
-                            <div
-                                class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="size-5">
-                                <label class="custom-control-label" for="size-5">XL</label>
-                                <span class="badge border font-weight-normal">168</span>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Size End -->
                 </div>
                 <!-- Shop Sidebar End -->
 
@@ -146,32 +102,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8">
-                    <div class="row pb-3">
-                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1 product-item">
-                            <div class="product-item bg-light mb-4">
-                                <div class="product-img position-relative overflow-hidden">
-                                    <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
-                                </div>
-                                <div class="text-center py-4">
-                                    <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
-                                    <div class="d-flex align-items-center justify-content-center mt-2">
-                                        <h5 style="margin-bottom: 0;">$123.00</h5>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <meter class="average-rating" min="0" max="5"
-                                                title="4.3 out of 5 stars" style="--percent: calc(1.5/5*100%);">starstarts</meter>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8">
-                    <div class="row pb-3">
+
+                <div class="col-lg-9 col-md-8 ml-auto">
+                    <div class="row pb-3 justify-content-end end">
                         <div class="col-12">
                             <nav>
                                 <ul class="pagination justify-content-center">

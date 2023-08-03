@@ -1,11 +1,16 @@
 $(document).ready(function () {
   loadGenres();
   loadBooks();
+
+  $(".price-filter-input").change(loadBooks);
 });
 
 const loadBooks = async (page = 0, numItems = 20, sort = "title") => {
 
-  const filter = { genres: getGenreFilter() };
+  const filter = { 
+    genres: getGenreFilter(),
+    prices: getPriceFilter(),
+  };
   const result = await makeRequest(`api/book/list`, "POST", {
     filter,
     page,
@@ -73,7 +78,7 @@ const loadGenres = async () => {
   $(".genre-filter-input").change(loadBooks);
 };
 
-const getGenreFilter = (event) => {
+const getGenreFilter = () => {
   const filterItems = $(".genre-filter-input:checked");
 
   const selectedGenres = [];
@@ -82,4 +87,19 @@ const getGenreFilter = (event) => {
   }
 
   return selectedGenres;
+};
+
+const getPriceFilter = () => {
+  const filterItems = $(".price-filter-input:checked");
+
+  const selectedPrices = [];
+  for (let item of filterItems) {
+    selectedPrices.push(
+      {
+        min: item.attributes["price-min"].value,
+        max: item.attributes["price-max"].value,
+    });
+  }
+
+  return selectedPrices;
 };
