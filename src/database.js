@@ -1,8 +1,12 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.DB_CONNECTION_STRING, {
+mongoose.connect(process.env.APPSETTING_DB_CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+const genreSchema = new mongoose.Schema({
+  name: String,
 });
 
 const userSchema = new mongoose.Schema({
@@ -15,17 +19,21 @@ const userSchema = new mongoose.Schema({
 
 const booksSchema = new mongoose.Schema({
   title: String,
-  description: Date,
-  year: Number,
-  author: [String],
-  tags: [String],
+  subtitle: String,
+  description: String,
+  releaseDate: Date,
+  authors: [String],
   genres: [String],
-  cover: String,
   rating: Number,
   price: Number,
+  isbn: String,
+  eisbn: String,
+  pages: Number,
+  coverURL: String,
 });
 
 const User = mongoose.model("User", userSchema);
 const Book = mongoose.model("Book", booksSchema);
+const Genre = mongoose.model("Genre", genreSchema);
 
-module.exports = { User, Book };
+module.exports = { User, Book, Genre };

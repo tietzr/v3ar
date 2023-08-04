@@ -4,8 +4,7 @@
   "description": "Full Stack Javascript Final Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./index.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,8 @@
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^7.4.1"
+    "mongoose": "^7.4.1",
+    "node-fetch": "^2.6.6"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
