@@ -7,11 +7,19 @@ router.get("/", async (req, res) => {
   res.send("Welcome to User!");
 });
 
-router.post("/add", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     console.log(req.body);
     const user = new User(req.body);
     const savedUser = await user.save();
+    if (!savedUser) {
+      res.status(400).send({
+        status: "error",
+        message:
+          "Something Went Wrong!",
+      });
+      return;
+    }
     res.send(savedUser);
   } catch (err) {
     res.status(500).send(err);

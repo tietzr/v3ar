@@ -20,3 +20,13 @@ const hasError = (result, nodeId) => {
 
   return false;
 }
+const success = (result, nodeId) => {
+  if (result.status != "error") {
+    $(`#${nodeId}`).html("Successfully registered! Redirecting to Login.");
+    $(`#${nodeId}`).show();
+
+    return true
+  }
+
+  return false;
+}
