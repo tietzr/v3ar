@@ -25,6 +25,7 @@ const hasError = (result, nodeId) => {
 
   return false;
 };
+
 const success = (result, nodeId) => {
   if (result.status != "error") {
     $(`#${nodeId}`).html("Successfully registered! Redirecting to Login.....");
@@ -36,3 +37,16 @@ const success = (result, nodeId) => {
   return false;
 };
 
+
+
+// Check if the user is logged and has an Admin role
+const isLoggedUserAdmin = () => {
+  let userInfo = window.localStorage.getItem("bookshelf@authentication");
+
+  if (userInfo) {
+    userInfo = JSON.parse(userInfo);
+    return userInfo.role == "admin";
+  }
+  
+  return false;
+};

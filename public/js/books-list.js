@@ -9,8 +9,8 @@ $(document).ready(function () {
   $("#paginationPrevious").click(paginationPreviousClick);
   $("#paginationNext").click(paginationNextClick);
 
-  $("#booksSearchInput").keyup((event) => { 
-    if(event.which == 13) {
+  $("#booksSearchInput").keyup((event) => {
+    if (event.which == 13) {
       loadBooks();
     }
   });
@@ -86,7 +86,7 @@ const getPriceFilter = () => {
 const getSearchFilter = () => {
   const filter = $("#booksSearchInput").val();
   return filter ?? "";
-}
+};
 
 /**
  * Events Section
@@ -99,7 +99,6 @@ const paginationClick = (event) => {
 
   loadBooks();
 };
-
 
 const paginationNextClick = (event) => {
   if ($(event.currentTarget).prev().hasClass("active")) {
@@ -135,7 +134,7 @@ const buildBooksList = (items) => {
   $("#emptyListMessage").hide();
   $("#paginationContainer").show();
 
-  if (items.length == 0){
+  if (items.length == 0) {
     $("#paginationContainer").hide();
     $("#emptyListMessage").show();
     return;
@@ -143,12 +142,19 @@ const buildBooksList = (items) => {
 
   for (let bookItem of items) {
     buildBookItem(bookItem);
-  }    
-}
+  }
+
+  $(".product-item").click((event) => {
+    const id = event.currentTarget.attributes["product-item-id"].value;
+    window.location.href = "/pages/detail/" + id;
+  });
+};
 
 const buildBookItem = (bookItem) => {
   const bookTemplate = `
-  <div class="col-lg-4 col-md-6 col-sm-6 pb-1 product-item">
+  <div class="col-lg-4 col-md-6 col-sm-6 pb-1 product-item" product-item-id="${
+    bookItem._id
+  }">
     <div class="bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
             <img class="img-fluid cover-img" src="${bookItem.coverURL}" alt="">
@@ -188,7 +194,6 @@ const buildGenreItem = (genre) => {
   `;
   $("#genreFilterContainer").append(genreFilterTemplate);
 };
-
 
 const buildPagination = (total, page, items) => {
   $(".page-item-button").remove();

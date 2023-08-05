@@ -119,6 +119,12 @@ const checkLoggedUser = () => {
     $("#loggedUserArea").hide();
     $("#userLoginArea").show();
   }
+
+  if (isLoggedUserAdmin()){
+    $("#adminMenu").show();
+  } else {
+    $("#adminMenu").hide();
+  }
 };
 
 const logout = () => {

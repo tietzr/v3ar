@@ -14,7 +14,7 @@ const onLoginSubmit = async (event) => {
   if (!hasError(result, "loginError")){
     // If credential match then save to local storage
     window.localStorage.setItem("bookshelf@authentication", JSON.stringify(result));    
-    window.location.href = '/pages/shop';
+    window.location.href = '/';
   }  
   return false;
 };
