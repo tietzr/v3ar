@@ -26,9 +26,11 @@ const onRegisterSubmit = async (event) => {
   const jsonData = Object.fromEntries(formData.entries());
 
   const result = await makeRequest(`api/user/register`, "POST", jsonData);
+  // If no erro in registering
   if (!hasError(result, "registerError")){
     // If successfully registered then take to login form
     if(success(result, "registerSuccess")){
+      $(`#registerError`).hide();
       setTimeout(() => {
         window.location.href = '/pages/login';
       }, 2000);

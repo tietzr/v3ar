@@ -27,7 +27,6 @@ router.post("/register", async (req, res) => {
           message:
             "Something Went Wrong!",
         });
-        return;
       }
       res.send(savedUser);
     }else{      
@@ -37,10 +36,7 @@ router.post("/register", async (req, res) => {
         message:
           "User Already Exists!",
       });
-      return;
-    }
-
-    
+    }    
   } catch (err) {
     res.status(500).send(err);
   }
