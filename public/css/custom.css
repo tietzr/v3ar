@@ -37,3 +37,21 @@
     min-width: 5.5rem;
     text-align: center;
 }
+
+.richText-btn, .richText-undo, .richText-redo {
+    color: #6C757D;
+}
+
+.thumbnail-label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+    transform: translateY(-50%);
+}
+
+.thumbnail-image {
+    z-index: 1;
+    position: relative;
+}
