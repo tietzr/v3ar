@@ -3,6 +3,9 @@ $(document).ready(function () {
 
   $("#bookEditButton").click(bookEditClick);
   $("#bookDeleteConfirmButton").click(bookDeleteConfimationClick);
+
+  $("#addToCartButton").click(addToCartClick);
+  $(".quantity button").click(updateBookQuantityClick);
 });
 
 /**
@@ -18,6 +21,32 @@ const bookDeleteConfimationClick = async (event) => {
   await makeRequest("api/book/" + getBookIdFromUrl(), "delete");
   window.location.href = "/";
 }
+
+const addToCartClick = async (event) => {
+  const bookId = getBookIdFromUrl();
+  const cartInfo = getCartInfo();
+  cartInfo.push({ bookId, quantity: $("#cartDetailsQuantity").val() } );
+  
+  window.localStorage.setItem("bookshelf@cart", JSON.stringify(cartInfo));  
+
+  updateCartCounter();
+}
+
+const updateBookQuantityClick = (event) => {
+  const button = $(event.currentTarget);
+  const currentValue = $("#cartDetailsQuantity").val();
+  let newValue = parseFloat(currentValue);
+  if (button.hasClass("btn-plus")) {
+    newValue = newValue + 1;
+  } else {
+    newValue = newValue - 1;
+  }
+  $("#cartDetailsQuantity").val(newValue > 0 ? newValue : 1);
+}
+/**
+ * Util Section
+ * Util methods to handle page specific logic
+ */
 
 const getBookIdFromUrl = () => {
   const urlParts = window.location.pathname.split("/");

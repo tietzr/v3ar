@@ -20,6 +20,7 @@
     $(window).resize(toggleNavbarMethod);
 
     checkLoggedUser();
+    updateCartCounter();
   });
 
   // Back to top button
@@ -84,21 +85,6 @@
     },
   });
 
-  // Product Quantity
-  $(".quantity button").on("click", function () {
-    var button = $(this);
-    var oldValue = button.parent().parent().find("input").val();
-    if (button.hasClass("btn-plus")) {
-      var newVal = parseFloat(oldValue) + 1;
-    } else {
-      if (oldValue > 0) {
-        var newVal = parseFloat(oldValue) - 1;
-      } else {
-        newVal = 0;
-      }
-    }
-    button.parent().parent().find("input").val(newVal);
-  });
 })(jQuery);
 
 $(document).ready(function () {
@@ -130,5 +116,19 @@ const checkLoggedUser = () => {
 const logout = () => {
   window.localStorage.removeItem("bookshelf@authentication");
 
-  location.reload()
+  location.reload();
+};
+
+const getCartInfo = () => {
+  let cartInfo = window.localStorage.getItem("bookshelf@cart");  
+  if (cartInfo){
+    return JSON.parse(cartInfo);
+  }
+  return [];
+}
+
+const updateCartCounter = () => {
+  const cartInfo = getCartInfo();
+
+  $("#cartInfoLabel").html(cartInfo.length);
 };

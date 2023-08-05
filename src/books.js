@@ -46,6 +46,12 @@ router.post("/list", async (req, res) => {
       };
     }
 
+    if (filter?.ids?.length) {
+      queryFilter._id = {
+        $in: filter.ids,
+      };
+    }
+
     const andClause = [];
     if (filter?.prices?.length) {
       andClause.push({
