@@ -7,7 +7,29 @@ router.get("/", async (req, res) => {
   res.send("Welcome to Books API!");
 });
 
-// Add the router for registration form here
+router.post("/add", async (req, res) => {
+  const newBook = req.body;
+
+  try {
+    if (await Book.exists({ isbn: new RegExp(newBook.isbn, "i") })) {
+      res.status(500).send({
+        status: "error",
+        message:
+          "The ISBN already exists in the database, please make sure to have a unique code for this book",
+      });
+    }
+
+    const book = new Book(newBook);
+    const savedBook = await book.save();
+    
+    res.send(savedBook);
+  } catch (err) {
+    res.status(500).send({
+      status: "error",
+      message: "Something went wrong trying to add the book to the database",
+    });
+  }
+});
 
 router.post("/list", async (req, res) => {
   try {
@@ -39,16 +61,16 @@ router.post("/list", async (req, res) => {
       andClause.push({
         $or: [
           {
-            title: new RegExp(filter.search, 'i'),
+            title: new RegExp(filter.search, "i"),
           },
           {
-            authors: new RegExp(filter.search, 'i'),
+            authors: new RegExp(filter.search, "i"),
           },
         ],
       });
     }
 
-    if (andClause.length > 0 ){
+    if (andClause.length > 0) {
       queryFilter.$and = andClause;
     }
 
@@ -67,6 +89,19 @@ router.post("/list", async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const book = await Book.findByIdAndDelete(req.params.id);
+    res.send(book);
+  } catch (err) {
+    res.status(500).send({
+      status: "error",
+      message: "Something went wrong trying to delete the book from the database",
+    });
+  }
+});
+
 
 router.get("/genres", async (req, res) => {
   try {

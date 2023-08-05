@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    // finding if the user email exists
     const user = new User(req.body);
     const findUser = await User.findOne(
       {
