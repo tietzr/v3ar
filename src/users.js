@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { User } = require("./database");
+const e = require("express");
 
 router.get("/", async (req, res) => {
   res.send("Welcome to User!");
@@ -9,18 +10,37 @@ router.get("/", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    console.log(req.body);
+    // finding if the user email exists
     const user = new User(req.body);
-    const savedUser = await user.save();
-    if (!savedUser) {
+    const findUser = await User.findOne(
+      {
+        email: user.email,
+      },
+      { password: 0, birthDate: 0 }
+    );
+    if (!findUser) {
+      // If user is not found in database then register it
+      const savedUser = await user.save();
+      if (!savedUser) {
+        res.status(400).send({
+          status: "error",
+          message:
+            "Something Went Wrong!",
+        });
+        return;
+      }
+      res.send(savedUser);
+    }else{      
+      // If user is registered with same email then prompt error
       res.status(400).send({
         status: "error",
         message:
-          "Something Went Wrong!",
+          "User Already Exists!",
       });
       return;
     }
-    res.send(savedUser);
+
+    
   } catch (err) {
     res.status(500).send(err);
   }
@@ -28,8 +48,6 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const loginInfo = req.body;
-
-  console.log(loginInfo);
   try {
     const userFound = await User.findOne(
       {
