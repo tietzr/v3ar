@@ -129,5 +129,6 @@ const checkLoggedUser = () => {
 
 const logout = () => {
   window.localStorage.removeItem("bookshelf@authentication");
-  checkLoggedUser();
+
+  location.reload()
 };

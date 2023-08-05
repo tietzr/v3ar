@@ -2,6 +2,12 @@ var selectAuthors;
 var selectGenres;
 
 $(document).ready(function () {
+  // Only admin users can add new books
+  if (!isLoggedUserAdmin()){
+    window.location.href = "/";
+    return;
+  }
+
   loadGenres();
 
   $("#addBookForm").submit(onAddFormSubmit);
