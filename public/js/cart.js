@@ -29,7 +29,7 @@ const displayitem = (cartInfo, booksInfo) => {
         const itemTotal = parseFloat(bookInfo.price * parseInt(cartItem.quantity));
         const template = `     
        <tr>
-      <td class="align-middle"><img src="img/product-5.jpg" alt="" style="width: 50px;"> ${bookInfo.title}</td>
+      <td class="text-left"><img src="${bookInfo.coverURL}" class="ml-5 mr-2" alt="" style="width: 50px;"> ${bookInfo.title}</td>
       <td class="align-middle">$ ${bookInfo.price.toFixed(2)}</td>
       <td class="align-middle">
           <div class="input-group quantity mx-auto" style="width: 100px;">
