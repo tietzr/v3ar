@@ -25,7 +25,7 @@ const bookDeleteConfimationClick = async (event) => {
 const addToCartClick = async (event) => {
   const bookId = getBookIdFromUrl();
   const cartInfo = getCartInfo();
-  cartInfo.push({ bookId, quantity: $("#cartDetailsQuantity").val() } );
+  cartInfo.push({ id: Date.now().toString(), bookId, quantity: $("#cartDetailsQuantity").val() } );
   
   window.localStorage.setItem("bookshelf@cart", JSON.stringify(cartInfo));  
 
