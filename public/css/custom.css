@@ -29,7 +29,8 @@
     text-align: center;
 }
 
-.product-item, .page-item-button {
+.product-item,
+.page-item-button {
     cursor: pointer;
 }
 
@@ -38,7 +39,9 @@
     text-align: center;
 }
 
-.richText-btn, .richText-undo, .richText-redo {
+.richText-btn,
+.richText-undo,
+.richText-redo {
     color: #6C757D;
 }
 
@@ -54,4 +57,57 @@
 .thumbnail-image {
     z-index: 1;
     position: relative;
+}
+
+
+.cart-badge-animation {
+    animation: wiggle 2s linear;
+}
+
+.cart-badge:after {
+    content: attr(value);
+    font-size: 12px;
+    color: #FFD333;
+    background: transparent;
+    border-radius: 50%;
+    padding: 2px 5px;
+    position: relative;
+    left: -8px;
+    top: -10px;
+    opacity: 0.9;
+    border: #FFD333 solid 1px;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+
+    0%,
+    7% {
+        transform: rotateZ(0);
+    }
+
+    15% {
+        transform: rotateZ(-15deg);
+    }
+
+    20% {
+        transform: rotateZ(10deg);
+    }
+
+    25% {
+        transform: rotateZ(-10deg);
+    }
+
+    30% {
+        transform: rotateZ(6deg);
+    }
+
+    35% {
+        transform: rotateZ(-4deg);
+    }
+
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
 }

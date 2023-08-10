@@ -30,6 +30,7 @@ const addToCartClick = async (event) => {
   window.localStorage.setItem("bookshelf@cart", JSON.stringify(cartInfo));  
 
   updateCartCounter();
+  shakeCart();
 }
 
 const updateBookQuantityClick = (event) => {

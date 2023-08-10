@@ -131,5 +131,13 @@ const getCartInfo = () => {
 const updateCartCounter = () => {
   const cartInfo = getCartInfo();
 
-  $("#cartInfoLabel").html(cartInfo.length);
+  $("#cartCounterBadge").attr("value", cartInfo.length);
 };
+
+const shakeCart = () => {
+  $("#cartCounterBadge").addClass("cart-badge-animation");
+
+  setTimeout(() => {
+    $("#cartCounterBadge").removeClass("cart-badge-animation");
+  }, 3000);
+}
