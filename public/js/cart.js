@@ -110,4 +110,6 @@ const removeBookItem = (event) => {
     window.localStorage.setItem("bookshelf@cart", JSON.stringify(newCartInfo));
     $(event.currentTarget).parents("tr").remove();
     updateTotal();
+    updateCartCounter();
+    shakeCart();
 }

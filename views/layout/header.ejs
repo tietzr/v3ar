@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <div class="container-fluid bg-dark mb-30">
     <div class="row px-xl-5">
-       
+
         <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
                 <a href="/" class="text-decoration-none d-block">
@@ -20,17 +20,17 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admin <i
                                     class="fa fa-angle-down"></i></a>
                             <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href="/pages/add-book" class="dropdown-item"><i class="fa-regular fa-square-plus"></i> Add Book</a>
+                                <a href="/pages/add-book" class="dropdown-item"><i
+                                        class="fa-regular fa-square-plus"></i> Add Book</a>
                             </div>
                         </div>
 
                     </div>
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="/pages/cart" class="nav-item nav-link active">
-                            <span id="cartInfoLabel" class="badge text-secondary border border-secondary rounded-circle p-1">0</span>
-                            <i class="fa-solid fa-cart-shopping text-primary pl-1"></i>
+                        <a href="/pages/cart" class="nav-item nav-link active" id="cart-badge">
+                            <i id="cartCounterBadge" class="cart-badge text-primary pl-1 fa-solid fa-cart-shopping" value="5"> </i>
                         </a>
-                        <div id="loggedUserArea" class="nav-item dropdown"  style="display: none;">
+                        <div id="loggedUserArea" class="nav-item dropdown" style="display: none;">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                                 <span id="userNameHeader"></span>
                                 <i class="fa fa-angle-down ml-1"></i>
