@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { Book, Genre } = require("./database");
+const { Book } = require("./database");
 
 router.get("/", async (req, res) => {
   res.send("Welcome to Books API!");
@@ -42,6 +42,19 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.patch("/:id", async (req, res) => {
+  try {
+    const book = await Book.findByIdAndUpdate(req.params.id, req.body, {
+      new: false,
+    });
+    res.send(book);
+  } catch (err) {
+    res.status(500).send({
+      status: "error",
+      message: "Something went wrong trying to update the book in the database",
+    });
+  }
+});
 
 
 router.post("/list", async (req, res) => {
