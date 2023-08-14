@@ -20,6 +20,11 @@
     -webkit-text-fill-color: transparent;
 }
 
+.detail-img {
+    max-height: 30rem;
+    width: auto;
+}
+
 .cover-img {
     max-height: 22rem;
     width: auto;
