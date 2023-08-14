@@ -11,6 +11,8 @@ dotenv.config();
 const database = require("./src/database");
 const userRoutes = require('./src/users');
 const bookRoutes = require('./src/books');
+const genreRoutes = require('./src/genres');
+
 
 // require('./data/data-load');
 
@@ -26,6 +28,8 @@ app.set('view engine', 'ejs');
 
 app.use('/api/user', userRoutes);
 app.use('/api/book', bookRoutes);
+app.use('/api/genres', genreRoutes);
+
 
 const keys = { APPSETTING_BACK_END_URL: process.env.APPSETTING_BACK_END_URL} ;
 

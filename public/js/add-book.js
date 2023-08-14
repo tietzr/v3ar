@@ -37,7 +37,7 @@ $(document).ready(function () {
  * Interacting with the back-end to get/send data
  */
 const loadGenres = async () => {
-  const genres = await makeRequest(`api/book/genres`);
+  const genres = await makeRequest(`api/genres`);
 
   selectGenres = $('#select-genres').selectize({
     maxItems: null,

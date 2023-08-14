@@ -48,7 +48,7 @@ const loadBooks = async () => {
 };
 
 const loadGenres = async () => {
-  const result = await makeRequest(`api/book/genres`);
+  const result = await makeRequest(`api/genres`);
 
   $(".genre-filter-item").remove();
   result.forEach((genreItems) => {

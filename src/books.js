@@ -120,16 +120,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-
-router.get("/genres", async (req, res) => {
-  try {
-    const genres = await Genre.find({}, null, {
-      sort: { name: 1 },
-    });
-    res.send(genres);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
-
 module.exports = router;
