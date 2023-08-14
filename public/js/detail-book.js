@@ -1,6 +1,6 @@
 $(document).ready(function () {
   checkLoggedUserDetail();
-
+  fetchBookDetails();
   $("#bookEditButton").click(bookEditClick);
   $("#bookDeleteConfirmButton").click(bookDeleteConfimationClick);
 
@@ -8,10 +8,53 @@ $(document).ready(function () {
   $(".quantity button").click(updateBookQuantityClick);
 });
 
+
 /**
  * Event Section
  * Handling events for page HTML elements
  */
+const fetchBookDetails = async () => {
+  const bookId = getBookIdFromUrl();
+  const book = await makeRequest(`api/book/${bookId}`, "GET");
+  $("#bookName").html(book.title);
+  $("#bookPrice").html(book.price);
+  $("#bookDesc").html(book.subtitle);
+  $("#bookPages").html(book.pages);
+  $("#bookAuthors").html(book.authors);
+  $("#bookCover img").attr("src", book.coverURL);
+  $("#bookDescription").html(book.description);
+
+  const relDate = new Date(book.releaseDate);
+  const formattedReleaseDate = relDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+
+  $("#bookRelease").html(formattedReleaseDate);
+
+  $("#bookGenre").html(book.genres);
+
+
+// Display star ratings dynamically
+const ratingContainer = $("#bookRating");
+const rating = parseFloat(book.rating);
+
+const fullStars = Math.floor(rating);
+const halfStar = rating - fullStars >= 0;
+
+const starsHtml = Array(fullStars).fill('<small class="fas fa-star"></small>');
+if (halfStar) {
+  starsHtml.push('<small class="fas fa-star-half-alt"></small>');
+}
+const emptyStars = 5 - (fullStars + (halfStar ? 1 : 0));
+starsHtml.push(...Array(emptyStars).fill('<small class="far fa-star"></small>'));
+
+ratingContainer.html(starsHtml.join(""));
+
+
+};
+
 
 const bookEditClick = (event) => {
   window.location.href = "/pages/edit-book/" + getBookIdFromUrl();

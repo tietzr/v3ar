@@ -31,6 +31,18 @@ router.post("/add", async (req, res) => {
   }
 });
 
+
+router.get("/:id", async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    res.send(book);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+
 router.post("/list", async (req, res) => {
   try {
     const page = req.body.page ? req.body.page - 1 : 0;
