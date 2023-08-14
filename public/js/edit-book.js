@@ -9,6 +9,7 @@ $(document).ready(function () {
   }
 
   fetchBookDetails();
+  $("#coverURL").change(updateCoverThumbnail);
   $("#updateBookForm").submit(onUpdateFormSubmit);
 });
 
@@ -94,6 +95,7 @@ const loadGenres = async (book) => {
 
   selectGenres.setValue(book.genres);
 };
+
 const onUpdateFormSubmit = async (event) => {
   const formData = new FormData(event.currentTarget);
   const jsonData = Object.fromEntries(formData.entries());
@@ -109,3 +111,7 @@ const onUpdateFormSubmit = async (event) => {
   }
   window.location.href = "/pages/detail/" + result._id;
 };
+
+const updateCoverThumbnail = (event) => {
+    $("#coverThumbnail").attr("src", event.currentTarget.value);
+}
