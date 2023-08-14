@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
   res.render('pages/index', keys);
 });
 
-const pages = ['cart', 'checkout', 'contact', 'about', 'login', 'register', 'add-book'];
+const pages = ['cart', 'checkout', 'contact', 'about', 'login', 'register', 'add-book', 'edit-book'];
 
 pages.forEach(pageName => {
   app.get(`/pages/${pageName}`, function(req, res) {
@@ -47,6 +47,10 @@ pages.forEach(pageName => {
 
 app.get(`/pages/detail/:id`, function(req, res) {
   res.render(`pages/detail`, keys);
+});
+
+app.get(`/pages/edit-book/:id`, function(req, res) {
+  res.render(`pages/edit-book`, keys);
 });
 
 // This app will run on port 3000 locahost:3000
