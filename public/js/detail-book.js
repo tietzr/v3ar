@@ -17,8 +17,8 @@ const fetchBookDetails = async () => {
   const bookId = getBookIdFromUrl();
   const book = await makeRequest(`api/book/${bookId}`, "GET");
   $("#bookName").html(book.title);
+  $("#bookSubtitle").html(book.subtitle);
   $("#bookPrice").html(book.price.toFixed(2));
-  $("#bookDesc").html(book.subtitle);
   $("#bookPages").html(book.pages);
   $("#bookAuthors").html(book.authors.join(" | "));
   $("#bookCover img").attr("src", book.coverURL);
@@ -31,41 +31,26 @@ const fetchBookDetails = async () => {
     day: "numeric"
   });
 
-  $("#bookRelease").html(formattedReleaseDate);
-
+  $("#bookRelease").html(" " + formattedReleaseDate);
   $("#bookGenre").html(book.genres.join(" | "));
-
 
   // Display star ratings dynamically
   const ratingContainer = $("#bookRating");
-  const rating = parseFloat(book.rating);
-
-  const fullStars = Math.floor(rating);
-  const halfStar = rating - fullStars >= 0;
-
-  const starsHtml = Array(fullStars).fill('<small class="fas fa-star"></small>');
-  if (halfStar) {
-    starsHtml.push('<small class="fas fa-star-half-alt"></small>');
-  }
-  const emptyStars = 5 - (fullStars + (halfStar ? 1 : 0));
-  starsHtml.push(...Array(emptyStars).fill('<small class="far fa-star"></small>'));
-
-  ratingContainer.html(starsHtml.join(""));
-
-
+  ratingContainer.attr("title", book.rating + " out of 5 stars");
+  ratingContainer.css("--percent", `calc(${book.rating}/5*100%)`);
 };
 
 
-const bookEditClick = (event) => {
+const bookEditClick = () => {
   window.location.href = "/pages/edit-book/" + getBookIdFromUrl();
 }
 
-const bookDeleteConfimationClick = async (event) => {
+const bookDeleteConfimationClick = async () => {
   await makeRequest("api/book/" + getBookIdFromUrl(), "delete");
   window.location.href = "/";
 }
 
-const addToCartClick = async (event) => {
+const addToCartClick = async () => {
   const bookId = getBookIdFromUrl();
   const cartInfo = getCartInfo();
   cartInfo.push({ id: Date.now().toString(), bookId, quantity: $("#cartDetailsQuantity").val() });
