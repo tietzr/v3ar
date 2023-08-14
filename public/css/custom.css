@@ -118,21 +118,50 @@
 }
 
 .about-us-content {
-    font-family: Arial, sans-serif;
     line-height: 1.6;
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-  }
+}
 
-  .center {
+.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+}
 
-  img {
+.about-us-img {
     border: 5px solid #555;
-      }
-  
+}
+
+@media (max-width: 992) {
+    #homeLink {
+        padding-left: 5rem
+    }
+}
+
+/* About us styles */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    background-color: #FFD333;
+    padding: 10px;
+}
+
+.grid-container > .grid-item {
+    flex: 30%;
+    background-color: #6C757D ;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-item > h2 {
+    color: #fff;
+}
+
+.grid-item:hover {
+    background-color: #6c757d52 ;
+}

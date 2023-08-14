@@ -62,7 +62,6 @@ router.post("/login", async (req, res) => {
     }
     res.send(userFound);
   } catch (err) {
-    console.log(err);
     res.status(500).send({
       status: "error",
       message: "Something went wrong trying to locate the user in the database",

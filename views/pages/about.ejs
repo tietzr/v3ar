@@ -2,37 +2,6 @@
 <html lang="en">
 
 <head>
-    <style>
-
-.grid-container > div:hover {
-  background-color: #cacacad5;
-}
-h1:hover {
-  background-color: #cacacad5;
-}
-
-h2:hover {
-  background-color: #cacacad5;
-}
-
-.grid-container {
-          display: grid;
-            height: 650px;
-            align-content: cent space-around;
-            grid-template-columns: auto auto auto;
-            gap: 30px;
-            background-color:#5e5b5bd5;
-            padding : 10px;
-            }
-        
-        .grid-container > div {
-          background-color: rgba(255, 255, 255, 0.8);
-          text-align: center;
-          padding: 20px 0;
-          font-size: 15px;
-          
-        }
-        </style>
     <%- include('../layout/head'); %>
 </head>
 
@@ -43,62 +12,136 @@ h2:hover {
     </header>
 
     <main>
-<p><h1><b><center>About Us - V3AR: Connecting Worlds Through Books</center></b></h1></p>
-<img src="\img\firstimg.jpg" alt="books" width="300" height="300" class="center"><br><br>
+        <div class="container-fluid">
+            <div class="row px-xl-5">
+                <div class="center col-12 justify-content-center">
 
-    <p>At V3AR, we believe in the transformative power of books. We envision a world where stories have the ability to transcend boundaries, bridge cultures, and connect individuals from all walks of life. Our passion lies in curating a diverse collection of literary works that inspire, educate, and entertain, fostering a global community bound by the love of reading.</p><br>
-    
-    
- <div class="grid-container">
-    
-    <div>
-    <h2>Our Mission</h2>
-    <p>Our mission at V3AR is to serve as a conduit between readers and the remarkable universe of books. We are dedicated to handpicking a wide array of titles that cater to varying tastes, interests, and age groups, ensuring there's something for everyone within our carefully curated library. Whether you're an avid reader seeking the next immersive adventure or a curious learner hungry for knowledge, V3AR is your gateway to endless literary possibilities.</p>
-    </div>
-
-    <div>
-        <h2>Community and Engagement</h2>
-        <p>At V3AR, we view our readers as more than just consumers – they are valued members of a global community. Through our online platform, we facilitate discussions, book clubs, and interactive events that encourage dialogue and connections among our readers. We believe that the magic of a book truly comes alive when it is shared, debated, and cherished by a community of like-minded individuals.</p>
-        </div>
-
-        <div>
-            <h2>Quality and Curated Selection</h2>
-            <p>We understand that the sheer volume of books available can be overwhelming. That's why V3AR's team of passionate book enthusiasts handpicks each title in our collection, ensuring that only the highest quality works make their way onto our virtual shelves. Our commitment to curating a selection that is both diverse and exceptional means that you can trust V3AR to bring you the best in literature.</p>
-            </div>
-
-            <div>
-                <h2>Join Us in the Journey</h2>
-                <p>V3AR invites you to embark on a literary journey that knows no bounds. Whether you're a lifelong reader or just beginning to discover the joys of books, our platform promises an immersive and enlightening experience. Together, we can bridge gaps, explore new horizons, and foster a world united by the written word. Join us at V3AR and be part of a story that's larger than the pages it's written on.</p>
+                    <h1 class="text-center">
+                        About Us - V3AR: Connecting Worlds Through Books
+                    </h1>
+                    <img src="\img\firstimg.jpg" alt="books" width="300" height="300" class="center about-us-img"><br>
                 </div>
 
-                <div>
-                    <h2>What We Offer</h2>
-                    <p>With a deep understanding of the profound impact books can have on individuals and society as a whole, V3AR is committed to delivering exceptional reading experiences. Our collection spans genres, encompassing timeless classics, contemporary bestsellers, thought-provoking non-fiction, heartwarming children's tales, and much more. Through our platform, readers can explore new worlds, gain insights into diverse perspectives, and embark on intellectual journeys that enrich their lives.</p>
+                <p style="font-size: 1.5rem;">At V3AR, we believe in the transformative power of books. We envision a world
+                    where stories have the
+                    ability
+                    to transcend boundaries, bridge cultures, and connect individuals from all walks of life. Our
+                    passion lies
+                    in curating a diverse collection of literary works that inspire, educate, and entertain, fostering a
+                    global
+                    community bound by the love of reading.</p><br>
+
+                <div class="center col-12 justify-content-center">
+                    <div class="grid-container">
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">Our Mission</h2>
+                            <p>Our mission at V3AR is to serve as a conduit between readers and the remarkable universe
+                                of
+                                books. We
+                                are dedicated to handpicking a wide array of titles that cater to varying tastes,
+                                interests,
+                                and age
+                                groups, ensuring there's something for everyone within our carefully curated library.
+                                Whether you're
+                                an avid reader seeking the next immersive adventure or a curious learner hungry for
+                                knowledge, V3AR
+                                is your gateway to endless literary possibilities.</p>
+                        </div>
+
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">Community and Engagement</h2>
+                            <p>At V3AR, we view our readers as more than just consumers – they are valued members of a
+                                global
+                                community. Through our online platform, we facilitate discussions, book clubs, and
+                                interactive
+                                events that encourage dialogue and connections among our readers. We believe that the
+                                magic
+                                of a
+                                book truly comes alive when it is shared, debated, and cherished by a community of
+                                like-minded
+                                individuals.</p>
+                        </div>
+
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">Quality and Curated Selection</h2>
+                            <p>We understand that the sheer volume of books available can be overwhelming. That's why
+                                V3AR's
+                                team of
+                                passionate book enthusiasts handpicks each title in our collection, ensuring that only
+                                the
+                                highest
+                                quality works make their way onto our virtual shelves. Our commitment to curating a
+                                selection that
+                                is both diverse and exceptional means that you can trust V3AR to bring you the best in
+                                literature.
+                            </p>
+                        </div>
+
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">Join Us in the Journey</h2>
+                            <p>V3AR invites you to embark on a literary journey that knows no bounds. Whether you're a
+                                lifelong
+                                reader or just beginning to discover the joys of books, our platform promises an
+                                immersive
+                                and
+                                enlightening experience. Together, we can bridge gaps, explore new horizons, and foster
+                                a
+                                world
+                                united by the written word. Join us at V3AR and be part of a story that's larger than
+                                the
+                                pages it's
+                                written on.</p>
+                        </div>
+
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">What We Offer</h2>
+                            <p>With a deep understanding of the profound impact books can have on individuals and
+                                society as
+                                a
+                                whole, V3AR is committed to delivering exceptional reading experiences. Our collection
+                                spans
+                                genres,
+                                encompassing timeless classics, contemporary bestsellers, thought-provoking non-fiction,
+                                heartwarming children's tales, and much more. Through our platform, readers can explore
+                                new
+                                worlds,
+                                gain insights into diverse perspectives, and embark on intellectual journeys that enrich
+                                their
+                                lives.</p>
+                        </div>
+
+                        <div class="p-5 m-3 grid-item">
+                            <h2 class="pb-2">Diversity and Inclusivity</h2>
+                            <p>V3AR celebrates the beauty of diversity and seeks to amplify voices that have
+                                historically
+                                been
+                                underrepresented in the literary world. We champion authors from different cultural
+                                backgrounds,
+                                identities, and experiences, fostering a deeper understanding of the richness that comes
+                                from
+                                embracing a multitude of viewpoints. Our commitment to inclusivity extends to our
+                                readers,
+                                ensuring
+                                that everyone can find stories that resonate with them.</p>
+
+
+                        </div>
                     </div>
-    
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <div>
-        <h2>Diversity and Inclusivity</h2>
-        <p>V3AR celebrates the beauty of diversity and seeks to amplify voices that have historically been underrepresented in the literary world. We champion authors from different cultural backgrounds, identities, and experiences, fostering a deeper understanding of the richness that comes from embracing a multitude of viewpoints. Our commitment to inclusivity extends to our readers, ensuring that everyone can find stories that resonate with them.</p>
+    <br>
+    <marquee>
+        <h5>Connect with us today and let's explore the infinite worlds that books offer, one page at a time.</h5>
+    </marquee>
 
-    
-    </div>
-</main>
-
-    
-
-    
-    
-
-   
-    
-    <br><marquee><h5>Connect with us today and let's explore the infinite worlds that books offer, one page at a time.</h5></marquee>
-    
     <footer>
-    <%- include('../layout/footer'); %>
-</footer>
+        <%- include('../layout/footer'); %>
+    </footer>
 
-<%- include('../layout/scripts'); %>
+    <%- include('../layout/scripts'); %>
 
 </body>
 

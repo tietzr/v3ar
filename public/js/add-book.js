@@ -56,10 +56,8 @@ const onAddFormSubmit = async (event) => {
   jsonData.authors = selectAuthors[0].selectize.getValue();
   jsonData.genres = selectGenres[0].selectize.getValue();
   jsonData.description = $('#bookDescription').val();
-  console.log(jsonData);
 
   const result = await makeRequest("api/book/add", "POST", jsonData);
-  console.log(result);
 
   if (hasError(result, "addBookError")){
     return;

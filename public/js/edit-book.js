@@ -31,7 +31,7 @@ const fetchBookDetails = async () => {
     const bookId = getBookIdFromUrl();
     
     const book = await makeRequest(`api/book/${bookId}`, "GET");
-    console.log(book);
+
     $("#title").val(book.title);
     $("#subtitle").val(book.subtitle);
     const relDate = getFormattedDate(book.releaseDate);  
@@ -114,10 +114,8 @@ const onUpdateFormSubmit  = async (event) => {
     jsonData.authors = selectAuthors[0].selectize.getValue();
     jsonData.genres = selectGenres[0].selectize.getValue();
     jsonData.description = $('#bookDescription').val();
-    console.log(jsonData);
 
     const result = await makeRequest("api/book/update", "POST", jsonData);
-    console.log(result);
 
     if (hasError(result, "updateBookError")){
         return;
