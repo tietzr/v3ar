@@ -3,14 +3,26 @@
 
 <head>
     <style>
-        .grid-container {
+
+.grid-container > div:hover {
+  background-color: #cacacad5;
+}
+h1:hover {
+  background-color: #cacacad5;
+}
+
+h2:hover {
+  background-color: #cacacad5;
+}
+
+.grid-container {
           display: grid;
             height: 650px;
-            align-content: center;
+            align-content: cent space-around;
             grid-template-columns: auto auto auto;
             gap: 30px;
-            background-color: #cacacad5;
-            padding: 10px;
+            background-color:#5e5b5bd5;
+            padding : 10px;
             }
         
         .grid-container > div {
@@ -18,6 +30,7 @@
           text-align: center;
           padding: 20px 0;
           font-size: 15px;
+          
         }
         </style>
     <%- include('../layout/head'); %>
